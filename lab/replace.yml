@@ -1,0 +1,11 @@
+  - name: replace line in file examples
+    hosts: host01
+    tasks:
+    - name: "Replace line in file examples"
+      become: yes
+      become_user: root
+      replace:
+        path: /site/index.html
+        regexp: '(^Hello\s)'
+        replace: '\1newdomain'
+        backup: yes
